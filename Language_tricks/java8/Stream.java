@@ -66,5 +66,21 @@ public class Stream {
             A stream consists of source followed by zero or more intermediate methods combined together (pipelined) and a terminal method to process the objects obtained from the source as per the methods described.
             Stream is used to compute elements as per the pipelined methods without altering the original value of the object.
          */
+
+         // Convert int[] to Integer[] and List<Integer>:
+        int[] arr = {1,2,3,4,5};
+        // to Integer[]:
+        Integer[] boxedArr = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+        List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        System.out.println("list="+list);
+
+        // sort and distinct array
+        int[] a = {1,2,7,2,3,3,2,1,44,22,21,19};
+        System.out.println(Arrays.toString(a));// how to print array
+        Arrays.sort(a); //sort
+        System.out.println(Arrays.toString(a));
+        a =Arrays.stream(a).distinct().toArray(); //distinct
+        System.out.println(Arrays.toString(a));
+
     }
 }
